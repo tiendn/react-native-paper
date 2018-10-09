@@ -622,7 +622,7 @@ class TextInput extends React.Component<Props, State> {
           placeholder: label ? this.state.placeholder : this.props.placeholder,
           placeholderTextColor: placeholderColor,
           editable: !disabled,
-          keyboardType,
+          keyboardType: keyboardType || "default",
           selectionColor: activeColor,
           onFocus: this._handleFocus,
           onBlur: this._handleBlur,
