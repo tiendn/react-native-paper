@@ -74,6 +74,10 @@ type Props = {
    */
   underlineColor?: string,
   /**
+   * Determines which keyboard to open, e.g.numeric.
+   */
+  keyboardType?: string,
+  /**
    * Whether the input can have multiple lines.
    */
   multiline?: boolean,
@@ -373,6 +377,7 @@ class TextInput extends React.Component<Props, State> {
       label,
       error,
       underlineColor,
+      keyboardType,
       style,
       theme,
       render,
@@ -409,13 +414,13 @@ class TextInput extends React.Component<Props, State> {
       containerStyle = {
         backgroundColor: theme.dark
           ? color(colors.background)
-              .lighten(0.24)
-              .rgb()
-              .string()
+            .lighten(0.24)
+            .rgb()
+            .string()
           : color(colors.background)
-              .darken(0.06)
-              .rgb()
-              .string(),
+            .darken(0.06)
+            .rgb()
+            .string(),
         borderTopLeftRadius: theme.roundness,
         borderTopRightRadius: theme.roundness,
       };
@@ -464,7 +469,7 @@ class TextInput extends React.Component<Props, State> {
             inputRange: [0, 1],
             outputRange: [
               -(1 - MINIMIZED_LABEL_FONT_SIZE / MAXIMIZED_LABEL_FONT_SIZE) *
-                (this.state.labelLayout.width / 2),
+              (this.state.labelLayout.width / 2),
               0,
             ],
           }),
@@ -617,6 +622,7 @@ class TextInput extends React.Component<Props, State> {
           placeholder: label ? this.state.placeholder : this.props.placeholder,
           placeholderTextColor: placeholderColor,
           editable: !disabled,
+          keyboardType,
           selectionColor: activeColor,
           onFocus: this._handleFocus,
           onBlur: this._handleBlur,

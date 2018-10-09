@@ -12,6 +12,7 @@ export interface TextInputProps extends NativeTextInputProps {
   underlineColor?: string;
   multiline?: boolean;
   numberOfLines?: number;
+  keyboardType?: "default" | "number-pad" | "decimal-pad" | "numeric" | "email-address" | "phone-pad";
   onFocus?: () => any;
   onBlur?: () => any;
   render?: (props: RenderProps) => React.ReactNode;
@@ -36,4 +37,4 @@ export interface RenderProps extends NativeTextInputProps {
   value?: string;
 }
 
-export declare class TextInput extends React.Component<TextInputProps> {}
+export declare class TextInput extends React.Component<TextInputProps> { }
